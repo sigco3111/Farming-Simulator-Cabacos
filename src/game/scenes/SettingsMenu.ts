@@ -22,7 +22,6 @@ export class SettingsMenu extends Scene {
     private background?: GameObjects.Image;
     private overlay: GameObjects.Rectangle;
     private menu: MenuPanel;
-    private languageLabel: GameObjects.Text;
     private languageButtons: GameObjects.Container[] = [];
     private backButton: GameObjects.Container;
 
@@ -55,15 +54,6 @@ export class SettingsMenu extends Scene {
             depth: 1
         });
         playSound(this, 'openMenu');
-
-        this.languageLabel = this.add.text(0, 0, translate('language'), {
-            fontFamily: 'Arial Black',
-            fontSize: 22,
-            color: '#fff4d7',
-            stroke: '#1a100b',
-            strokeThickness: 4,
-            align: 'center'
-        }).setOrigin(0.5).setResolution(2).setDepth(2);
 
         this.createLanguageButtons();
 
@@ -115,9 +105,8 @@ export class SettingsMenu extends Scene {
 
         this.overlay.setSize(this.scale.width, this.scale.height);
         this.menu.center(true);
-        this.languageLabel.setPosition(centerX, centerY - 100);
         this.languageButtons.forEach((button, index) => {
-            button.setPosition(centerX, centerY - 35 + index * 72);
+            button.setPosition(centerX, centerY - 60 + index * 72);
         });
         this.backButton.setPosition(centerX, centerY + 115);
     }
