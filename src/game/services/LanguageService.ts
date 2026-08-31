@@ -1,6 +1,6 @@
-export type GameLanguage = 'en' | 'pt';
+export type GameLanguage = 'en' | 'pt' | 'ko';
 
-const defaultLanguage: GameLanguage = 'pt';
+const defaultLanguage: GameLanguage = 'ko';
 const languageStorageKey = 'farming-simulator-cabacos-language';
 
 const translations = {
@@ -26,6 +26,7 @@ const translations = {
         language: 'Language',
         english: 'English',
         portuguese: 'Portuguese',
+        korean: 'Korean',
         back: 'Back',
         gameOver: 'Game Over',
         inventoryTitle: 'Inventory',
@@ -130,6 +131,7 @@ const translations = {
         language: 'Idioma',
         english: 'Inglês',
         portuguese: 'Português',
+        korean: 'Coreano',
         back: 'Voltar',
         gameOver: 'Fim do Jogo',
         inventoryTitle: 'Inventário',
@@ -211,6 +213,111 @@ const translations = {
         cropRadish: 'Rabanete',
         cropSunflower: 'Girassol',
         cropWheat: 'Trigo'
+    },
+    ko: {
+        cropMarketTitle: '작물 시장',
+        sell: '판매',
+        sold: '판매 완료',
+        noCropToSell: '해당 작물이 없습니다',
+        sellCrops: 'E - 작물 판매',
+        gameTitle: '카바코스 농장',
+        startGame: '게임 시작',
+        saveGame: '게임 저장',
+        loadGame: '불러오기',
+        saveComplete: '저장되었습니다',
+        noSaves: '저장 데이터가 없습니다',
+        selectSlot: '슬롯 선택',
+        slot: '슬롯',
+        emptySlot: '비어있음',
+        settings: '설정',
+        settingsTitle: '설정',
+        pauseTitle: '일시 정지',
+        resume: '계속하기',
+        language: '언어',
+        english: '영어',
+        portuguese: '포르투갈어',
+        korean: '한국어',
+        back: '뒤로',
+        gameOver: '게임 오버',
+        inventoryTitle: '인벤토리',
+        money: '돈',
+        energy: '에너지',
+        day: '일차',
+        seedShopTitle: '씨앗 상점',
+        toolShopTitle: '도구 상점',
+        farmPurchaseTitle: '농장 땅',
+        buy: '구매',
+        owned: '보유 중',
+        notEnoughMoney: '돈이 부족합니다',
+        inventoryFull: '인벤토리가 가득 찼습니다',
+        purchased: '구매 완료',
+        landPurchased: '구매 완료',
+        alreadyOwned: '이미 보유한 땅입니다',
+        itemAlreadyOwned: '이미 보유한 아이템입니다',
+        enterHouse: 'E - 집 들어가기',
+        enterMarket: 'E - 시장 들어가기',
+        enterSeedShop: 'E - 상점 들어가기',
+        enterToolShop: 'E - 도구 상점 들어가기',
+        enterTownHall: 'E - 시청 들어가기',
+        exitBuilding: 'E - 나가기',
+        sleep: 'E - 잠자기',
+        buySeeds: 'E - 씨앗 구매',
+        buyTools: 'E - 도구 구매',
+        fillWateringCan: 'E - 물 주머니 채우기',
+        water: '물',
+        buyFarms: 'E - 농장 땅 구매',
+        marketSellTab: '작물',
+        marketQuestTab: '퀘스트',
+        activeQuests: '진행 중인 퀘스트',
+        questActive: '진행 중',
+        questReady: '완료 - 보상 받기',
+        questProgress: '진행도',
+        reward: '보상',
+        questActivate: '수락',
+        questActivated: '퀘스트가 수락되었습니다',
+        questAlreadyActive: '먼저 진행 중인 퀘스트를 완료하세요',
+        questClaim: '보상 받기',
+        questInProgress: '진행 중',
+        questCompleted: '완료',
+        questNotReady: '퀘스트가 아직 완료되지 않았습니다',
+        questRewardClaimed: '퀘스트 완료',
+        questPlantPumpkinsTitle: '호박 심기',
+        questPlantPumpkinsDescription: '농장에 호박 3그루를 심으세요.',
+        questSellCarrotsTitle: '당근 판매',
+        questSellCarrotsDescription: '작물 시장에서 당근 3개를 판매하세요.',
+        questWaterPlantsTitle: '식물에 물주기',
+        questWaterPlantsDescription: '아무 식물이나 10번 물을 주세요.',
+        farm2Name: '농장 2',
+        farm3Name: '농장 3',
+        itemAxe: '도끼',
+        itemHoe: '괭이',
+        itemRod: '낚싯대',
+        itemSickle: '낫',
+        itemShovel: '삽',
+        itemSword: '검',
+        itemWateringCan: '물 주전자',
+        seedBeetroot: '비트 씨앗',
+        seedCabbage: '양배추 씨앗',
+        seedCarrot: '당근 씨앗',
+        seedCauliflower: '콜리플라워 씨앗',
+        seedKale: '케일 씨앗',
+        seedParsnip: '파스닙 씨앗',
+        seedPotato: '감자 씨앗',
+        seedPumpkin: '호박 씨앗',
+        seedRadish: '무 씨앗',
+        seedSunflower: '해바라기 씨앗',
+        seedWheat: '밀 씨앗',
+        cropBeetroot: '비트',
+        cropCabbage: '양배추',
+        cropCarrot: '당근',
+        cropCauliflower: '콜리플라워',
+        cropKale: '케일',
+        cropParsnip: '파스닙',
+        cropPotato: '감자',
+        cropPumpkin: '호박',
+        cropRadish: '무',
+        cropSunflower: '해바라기',
+        cropWheat: '밀'
     }
 };
 
@@ -235,15 +342,15 @@ export function translate(key: TranslationKey): string {
 }
 
 export function getAvailableLanguages(): GameLanguage[] {
-    return ['pt', 'en'];
+    return ['ko', 'pt', 'en'];
 }
 
 export function getLanguageLabel(language: GameLanguage): string {
-    const labelKey: TranslationKey = language === 'pt' ? 'portuguese' : 'english';
-
-    return translate(labelKey);
+    if (language === 'ko') return translate('korean');
+    if (language === 'pt') return translate('portuguese');
+    return translate('english');
 }
 
 function isGameLanguage(value: string | null): value is GameLanguage {
-    return value === 'en' || value === 'pt';
+    return value === 'en' || value === 'pt' || value === 'ko';
 }

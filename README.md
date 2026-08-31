@@ -1,239 +1,235 @@
-# Quinta Cabaços
+# 카바코스 농장 (Farming Simulator Cabaços)
 
 <p align="center">
-  <img src="public/assets/mainmenu/logo_quinta_cabacos.png" alt="Logo Quinta Cabaços" width="560">
+  <img src="public/assets/mainmenu/logo_quinta_cabacos.png" alt="카바코스 농장 로고" width="560">
 </p>
 
-**Quinta Cabaços** é um jogo 2D top-down em pixel art desenvolvido em **Phaser 3**, **TypeScript** e **Vite**. O jogador gere uma pequena quinta, compra sementes e ferramentas, cultiva plantas, vende colheitas, compra novos terrenos e completa quests para ganhar dinheiro.
+**카바코스 농장**은 **Phaser 3**, **TypeScript**, **Vite**로 만든 2D 탑다운 픽셀 아트 농장 시뮬레이터입니다. 플레이어는 작은 농장을 경영하면서 씨앗과 도구를 사고, 작물을 키우고, 수확물을 팔아 돈을 모으며, 새로운 땅을 구입하고 퀘스트를 완수해 나아갑니다.
 
-## Grupo
+> 본 저장소는 [goncalojbsousa/Farming-Simulator-Cabacos](https://github.com/goncalojbsousa/Farming-Simulator-Cabacos)의 한글화(fork 아님) 버전입니다. 원본은 포르투갈어/영어를 지원하며, 본 포크는 **한국어를 기본 언어**로 추가하고 README를 한글로 다시 작성했습니다.
 
-| Elemento | Número de aluno | GitHub |
+---
+
+## 🎮 라이브 데모
+
+GitHub Pages에서 바로 플레이할 수 있습니다:
+
+```
+https://sigco3111.github.io/Farming-Simulator-Cabacos/
+```
+
+> 기본 언어는 **한국어**로 설정되어 있습니다. 설정 화면에서 한국어 / 포르투갈어 / 영어로 자유롭게 전환할 수 있습니다.
+
+---
+
+## 🌾 게임 소개
+
+카바코스 농장은 클래식한 2D 농장 시뮬레이션을 그대로 재현합니다. 게임의 핵심 목표는 **농장을 키우고**, **돈을 벌어**, **퀘스트를 완료**하면서 농장을 단계적으로 확장해 나가는 것입니다.
+
+### 📜 게임 루프
+
+- 🏪 **상점**에서 씨앗과 도구를 구매
+- 🌱 **괭이**로 흙을 일구고 작물을 심기
+- 💧 **물 주전자**로 식물에 물 주기
+- ⏳ **시간**이 흐르며 작물이 성장
+- 🌾 **낫**으로 다 자란 작물 수확
+- 🏬 **작물 시장**에서 수확물 판매
+- 🗺️ **새로운 농장 땅** 구매
+- 📜 **작물 시장 퀘스트**를 수락하고 완료
+
+### 📊 HUD (상태창)
+
+화면 상단에는 항상 다음 정보가 표시됩니다:
+
+| 요소 | 설명 |
+|---|---|
+| 💰 돈 | 현재 보유 금액 |
+| 📅 일차 / 시각 | 게임 내 진행 일수와 시간 |
+| ⚡ 에너지 | 작업을 하면 감소 |
+| 💧 물 | 물 주전자에 남은 물의 양 |
+| 🎒 인벤토리 / 단축바 | 현재 들고 있는 아이템과 도구 |
+| 📜 퀘스트 | 현재 진행 중인 퀘스트 |
+
+---
+
+## 👥 원작 제작자
+
+| 이름 | 학번 | GitHub |
 |---|---|---|
-| Cristiano Fonseca | 29725  | [m1guelfonseca](https://github.com/m1guelfonseca) |
+| Cristiano Fonseca | 29725 | [m1guelfonseca](https://github.com/m1guelfonseca) |
 | Gonçalo Sousa | 29726 | [goncalojbsousa](https://github.com/goncalojbsousa) |
 
-## Tecnologias
+> 본 한글화 작업은 원작자의 의도를 존중하며 게임 디자인과 코어 로직은 그대로 보존했습니다. 표시되는 언어만 한국어가 추가되었습니다.
 
-| Tecnologia | Uso |
+---
+
+## 🛠️ 사용 기술
+
+| 기술 | 용도 |
 |---|---|
-| **Phaser 3.90.0** | Motor 2D do jogo, incluído via npm |
-| **TypeScript** | Código principal do jogo, com tipagem para facilitar manutenção |
-| **Vite 6.3.1** | Servidor local e build do projeto |
-| **Tiled** | Criação do mapa principal, interiores, colisões e zonas de interação |
-| **HTML/CSS** | Estrutura base da página onde o jogo corre |
+| **Phaser 3.90.0** | 2D 게임 엔진, npm으로 설치 |
+| **TypeScript** | 메인 게임 코드, 정적 타입으로 유지보수성 향상 |
+| **Vite 6.3.1** | 로컬 개발 서버 및 프로덕션 번들링 |
+| **Tiled** | 메인 맵, 실내 맵, 충돌 및 상호작용 영역 제작 |
+| **HTML/CSS** | 게임이 실행되는 페이지의 기본 구조 |
 
-## Descrição do Jogo
+---
 
-O jogo segue uma lógica de **farm simulator** em 2D. O objetivo é evoluir a quinta através de ciclos de cultivo e economia:
+## ✨ 구현된 규칙과 시스템
 
-- comprar sementes na loja;
-- preparar terreno com a enxada;
-- plantar e regar culturas;
-- esperar pelo crescimento ao longo dos dias;
-- colher e vender no mercado;
-- comprar ferramentas e novos terrenos;
-- ativar e completar quests no Crop Market.
+### 🌱 경작
 
-O estado do jogo é apresentado no HUD: dinheiro, dia/hora, energia, água do regador, inventário/hotbar e quest ativa.
+- 플레이어는 **일구어진 밭**에만 씨앗을 심을 수 있습니다.
+- **괭이**로 흙을 준비합니다.
+- 씨앗은 **인벤토리/단축바 슬롯**을 차지합니다.
+- 식물은 물을 받아야 자랍니다.
+- 작물마다 고유한 성장 단계가 있습니다.
+- 작물이 다 자라면 시각적 표시가 나타나며 **낫**으로 수확할 수 있습니다.
 
-## Regras e Sistemas Implementados
+### 💧 물 시스템
 
-### Cultivo
+- 물 주전자는 용량이 제한되어 있으며 비워지면 다시 채워야 합니다.
+- 물이 부족하면 식물은 더 이상 자라지 않습니다.
 
-- O jogador só pode plantar em terreno preparado.
-- A enxada prepara o solo.
-- As sementes ocupam slots do inventário/hotbar.
-- As plantas precisam de água para crescer.
-- Cada cultura tem tempos de crescimento próprios.
-- Quando a cultura está pronta, aparece um indicador visual e pode ser colhida com a foice.
+### ⚡ 에너지 시스템
 
-### Energia, tempo e desmaio
+- 도구 사용, 경작, 수확 등은 에너지를 소모합니다.
+- 에너지가 0이 되면 행동이 제한됩니다.
+- 집에서 **잠자기(E)**로 다음 날로 넘어가며 일부 회복할 수 있습니다.
 
-- Usar ferramentas, plantar, colher e regar consome energia.
-- O dia avança com o tempo de jogo.
-- Se o jogador ficar ativo até às 02:00, desmaia.
-- Ao desmaiar, perde parte do dinheiro, recupera energia parcialmente e volta para a quinta de manhã.
-- Dormir em casa avança para o dia seguinte e recupera energia.
+### 💰 경제 시스템
 
-### Economia
+- 작물마다 **구매가**(씨앗)와 **판매가**(수확물)가 다릅니다.
+- 플레이어는 도구와 새 농장 땅을 구매해 자금을 늘릴 수 있습니다.
+- 인벤토리가 가득 차면 더 이상 아이템을 살 수 없습니다.
 
-- O jogador começa com dinheiro inicial.
-- Sementes e ferramentas podem ser compradas nas lojas.
-- Colheitas podem ser vendidas no Crop Market.
-- Terrenos extra podem ser comprados na câmara municipal.
+### 📜 퀘스트 시스템
 
-### Quests
+- 작물 시장 NPC에게서 퀘스트를 받습니다.
+- 동시에 하나의 퀘스트만 활성화할 수 있습니다.
+- 퀘스트를 완료하면 보상을 받을 수 있습니다.
 
-As quests são ativadas na tab **Quests** do Crop Market. Apenas uma quest pode estar ativa de cada vez.
+기본으로 구현된 퀘스트 예시:
 
-Quests atuais:
+- 호박 심기 (농장에 호박 3그루)
+- 당근 판매 (작물 시장에서 당근 3개 판매)
+- 식물에 물주기 (아무 식물에 10번 물주기)
 
-| Quest | Objetivo | Recompensa |
+---
+
+## 🌎 다국어 지원 (i18n)
+
+원본은 **포르투갈어 / 영어** 2개 언어를 지원했습니다. 본 포크는 여기에 **한국어를 추가**하여 3개 언어를 지원합니다.
+
+| 언어 | 코드 | 기본 여부 |
 |---|---|---|
-| Plantar Abóboras | Plantar 3 abóboras | 75 $ |
-| Vender Cenouras | Vender 3 cenouras no Crop Market | 60 $ |
-| Regar Plantas | Regar qualquer tipo de planta 10 vezes | 50 $ |
+| 한국어 | `ko` | ✅ 기본 |
+| 포르투갈어 | `pt` | 선택 가능 |
+| 영어 | `en` | 선택 가능 |
 
-Quando uma quest fica completa, o jogador deve voltar ao Crop Market e clicar em **Concluir** para receber a recompensa.
+언어 전환은 **설정 → 언어** 메뉴에서 가능합니다. 선택한 언어는 `localStorage`에 저장되어 새로고침 후에도 유지됩니다.
 
-### Inventário e save
+i18n 구조:
 
-- Hotbar com 8 slots.
-- Inventário extra com drag and drop entre slots.
-- Sistema de save em 3 slots.
-- O save guarda inventário, dinheiro, tempo, energia, água do regador, terrenos comprados, plantas/solo e progresso das quests.
+- `src/game/services/LanguageService.ts` — `GameLanguage` 타입, `translations` 객체, `translate()` 함수
+- 모든 UI 문자열은 **번역 키**(`TranslationKey`)로 참조되며, 표시 시점에 현재 언어의 텍스트로 치환됩니다.
 
-## Controlos
+이 접근법 덕분에 코드 전체에 흩어진 문자열 중복이 사라지고, 메뉴·HUD·상점·퀘스트·아이템·피드백 메시지를 한 곳에서 일관되게 번역할 수 있습니다.
 
-| Tecla / Ação | Função |
+---
+
+## 📁 프로젝트 구조
+
+| 폴더 / 파일 | 설명 |
 |---|---|
-| `W`, `A`, `S`, `D` | Mover o jogador |
-| Setas direcionais | Mover o jogador |
-| `E` | Interagir com edifícios, lojas, cama, mercado, poço e saídas |
-| `I` | Abrir ou fechar o inventário |
-| `ESC` | Abrir menu de pausa ou fechar painéis |
-| `1` a `8` | Selecionar slot da hotbar |
-| Clique esquerdo | Usar item selecionado no terreno |
-| Arrastar com o rato | Mover itens entre inventário e hotbar |
+| `index.html` | 게임이 마운트되는 기본 HTML 페이지 |
+| `src/main.ts` | 앱 진입점 |
+| `src/game/main.ts` | Phaser 설정과 씬 등록 |
+| `src/game/scenes` | 메뉴, 메인 게임, 실내, 상점, 일시정지 등 씬 |
+| `src/game/world` | 메인 맵과 카메라 생성 |
+| `src/game/objects` | 플레이어 등 주요 객체 |
+| `src/game/systems` | 경작, 입구, 물 주전자 등 게임플레이 시스템 |
+| `src/game/services` | 돈, 인벤토리, 시간, 세이브, 퀘스트, 언어 등 상태/서비스 |
+| `src/game/ui` | HUD, 인벤토리, 상점, 패널, 디스플레이 |
+| `src/game/data` | 아이템, 씨앗, 도구, 작물 데이터 |
+| `public/assets` | 이미지, 오디오, 타일셋, 타일맵, UI |
+| `docs` | 보조 문서 |
 
-## Imagens do Projeto
+---
 
-### Mapa Principal
+## 🚀 실행 방법
 
-![Mapa principal](public/assets/docs/readme_map_preview.png)
-
-### Interiores dos Edifícios
-
-<table>
-  <tr>
-    <td align="center">
-      <strong>Casa do jogador</strong><br>
-      <img src="public/assets/tilemap/house_interior_sem_fundo.png" alt="Interior da casa do jogador" width="260">
-    </td>
-    <td align="center">
-      <strong>Mercado de colheitas</strong><br>
-      <img src="public/assets/tilemap/crop_market_sem_fundo.png" alt="Interior do mercado de colheitas" width="260">
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <strong>Loja de sementes</strong><br>
-      <img src="public/assets/tilemap/seed_shop_sunnyside_style_384x288.png" alt="Interior da loja de sementes" width="260">
-    </td>
-    <td align="center">
-      <strong>Câmara municipal</strong><br>
-      <img src="public/assets/tilemap/town_hall_sem_fundo.png" alt="Interior da câmara municipal" width="260">
-    </td>
-  </tr>
-</table>
-
-## Aspetos Multimédia
-
-O projeto usa recursos multimédia adequados ao estilo pixel art e ao carregamento no browser:
-
-| Tipo | Formato | Uso |
-|---|---|---|
-| Imagens | `.png` | Tilesets, interiores, UI, logo, ferramentas, culturas e jogador |
-| Mapas | `.tmj` | Mapas criados/editados no Tiled |
-| Sons | `.mp3` | Efeitos de interação, compra, venda, ferramentas, rega, sono e feedback de erro |
-| Spritesheets | `.png` | Animações do jogador, ferramentas/culturas por frames e barra de energia |
-
-Resumo dos assets em `public/assets`:
-
-- 47 ficheiros `.png`, cerca de 5.53 MB.
-- 17 ficheiros `.mp3`, cerca de 0.31 MB.
-- 6 ficheiros `.tmj`, cerca de 0.37 MB.
-- Total aproximado: 6.21 MB.
-
-Os mapas e interiores foram compostos no Tiled a partir dos tilesets incluídos no projeto. Os sprites e elementos de UI foram integrados em tamanhos proporcionais ao uso no jogo, evitando imagens demasiado grandes para elementos pequenos. Os sons estão em MP3 comprimido, em ficheiros curtos, para manter o carregamento leve.
-
-## Suporte Multilingue
-
-O jogo suporta **português** e **inglês**. O idioma pode ser alterado nas definições.
-
-A estrutura de tradução está centralizada em:
-
-```text
-src/game/services/LanguageService.ts
-```
-
-Isto evita strings duplicadas espalhadas pelo código e permite traduzir menus, HUD, lojas, quests, itens e mensagens de feedback.
-
-## Estrutura do Projeto
-
-| Pasta / Ficheiro | Descrição |
-|---|---|
-| `index.html` | Página base onde o jogo é montado |
-| `src/main.ts` | Entrada da aplicação |
-| `src/game/main.ts` | Configuração principal do Phaser e registo das scenes |
-| `src/game/scenes` | Menus, jogo principal, interiores, lojas e pausa |
-| `src/game/world` | Criação do mapa principal e câmara |
-| `src/game/objects` | Objetos principais, como o jogador |
-| `src/game/systems` | Sistemas de gameplay: cultivo, entradas, regador |
-| `src/game/services` | Estado e serviços: dinheiro, inventário, tempo, saves, quests, idioma |
-| `src/game/ui` | HUD, inventário, lojas, painéis e displays |
-| `src/game/data` | Dados dos itens, sementes, ferramentas e culturas |
-| `public/assets` | Imagens, áudio, tilesets, tilemaps e UI |
-| `docs` | Documentação auxiliar |
-
-## Jogar Online
-
-O jogo está publicado no GitHub Pages e pode ser jogado no browser:
-
-```text
-https://goncalojbsousa.github.io/Farming-Simulator-Cabacos/
-```
-
-## Como Executar
-
-Instalar dependências:
+### 1. 의존성 설치
 
 ```bash
 npm install
 ```
 
-Executar em modo desenvolvimento:
+### 2. 개발 모드 실행
 
 ```bash
 npm run dev
 ```
 
-Ou sem logs do template Phaser:
+Phaser 템플릿 로그 없이 실행:
 
 ```bash
 npm run dev-nolog
 ```
 
-O jogo fica disponível em:
+개발 서버는 다음 주소에서 열립니다:
 
-```text
+```
 http://localhost:8080
 ```
 
-Gerar build de produção:
+### 3. 프로덕션 빌드
 
 ```bash
 npm run build
 ```
 
-Build sem logs do template:
+Phaser 템플릿 로그 없이 빌드:
 
 ```bash
 npm run build-nolog
 ```
 
-## Checklist do Enunciado
+빌드 결과는 `dist/` 폴더에 생성되며, GitHub Pages에 그대로 배포할 수 있는 정적 파일입니다.
 
-| Requisito | Estado |
-|---|---|
-| Phaser 3 no browser | Implementado com Phaser 3.90.0 via npm |
-| Projeto na raiz do repositório | Sim |
-| Grupo de 2 alunos | Sim |
-| Suporte a 2 línguas | Português e inglês |
-| Pelo menos 1 som | Vários efeitos MP3 integrados |
-| Input claro | Teclado, rato, hotbar e drag and drop |
-| Estado de jogo visível | Dinheiro, tempo, energia, água, inventário e quests |
-| Interações/colisões | Arcade Physics, tilemaps, zonas de interação e colisão |
-| README completo | Sim |
-| Tag 1.0 | Sim |
+---
+
+## 📝 한글화 작업 메모
+
+본 포크는 **표시 텍스트 100% 한글화**를 목표로 다음을 수행했습니다:
+
+1. `GameLanguage` 타입에 `'ko'` 추가
+2. `translations.ko` 객체에 모든 키(120개+)의 한국어 번역 추가
+3. `defaultLanguage`를 `'ko'`로 변경
+4. `getAvailableLanguages()`를 `['ko', 'pt', 'en']` 순서로 변경 (한국어가 토글 사이클의 첫 번째)
+5. `getLanguageLabel()` 함수에 `'ko'` 분기 추가
+6. `isGameLanguage()` 타입 가드에 `'ko'` 추가
+7. `index.html`의 `<html lang>` 및 `<title>` 한국어로 변경 (FOUC 방지)
+
+식별자(`id`, `cropId`, `textureKey` 등)는 원본 그대로 보존되어 게임 로직은 변경되지 않았습니다.
+
+---
+
+## 📜 라이선스
+
+본 프로젝트는 **MIT 라이선스**를 따릅니다. 원본 저장소의 라이선스를 그대로 보존했습니다.
+
+```
+MIT License - Copyright (c) Gonçalo Sousa e Miguel Fonseca
+```
+
+상세 내용은 [`LICENSE`](./LICENSE) 파일을 참조하세요.
+
+---
+
+## 🙏 크레딧
+
+- **원작자**: Gonçalo Sousa & Cristiano Fonseca — 게임 디자인, 코드, 아트
+- **한글화**: sigco3111 — 한국어 번역, README 재작성, gh-pages 배포
+- **엔진**: [Phaser 3](https://phaser.io/) — 오픈소스 2D 게임 프레임워크
+- **타일맵 도구**: [Tiled](https://www.mapeditor.org/)
