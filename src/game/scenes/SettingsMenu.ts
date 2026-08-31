@@ -108,7 +108,7 @@ export class SettingsMenu extends Scene {
         this.languageButtons.forEach((button, index) => {
             button.setPosition(centerX, centerY - 60 + index * 72);
         });
-        this.backButton.setPosition(centerX, centerY + 115);
+        this.backButton.setPosition(centerX, centerY + 175);
     }
 
     private changeLanguage(language: GameLanguage): void {
